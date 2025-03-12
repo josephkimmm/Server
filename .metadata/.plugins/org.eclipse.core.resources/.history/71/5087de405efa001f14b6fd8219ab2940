@@ -1,0 +1,93 @@
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.Comparator"%>
+<%@page import="java.io.File"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%
+
+	//디렉토리 탐색
+	String path = application.getRealPath("/pic");
+
+	File dir = new File(path);
+	File[] list = dir.listFiles();
+	
+	//(업로드한)시간 순서대로 정렬
+	//System.out.println(list[0].lastModified());
+	
+	Arrays.sort(list, new Comparator<File>() {
+		public int compare(File o1, File o2) {
+			return Long.compare(o2.lastModified(), o1.lastModified());
+		}
+	});
+	
+	
+%>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<style>
+		#list {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		#list > div > img {
+			width: 126px;
+			height: 126px;
+			border: 1px solid #999;
+			margin: 9px;
+			padding: 3px;
+			object-fit: cover;
+		}
+		
+		#list > div > img:hover {
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<!-- ex21.jsp -->
+	<h1>Image Gallery</h1>
+	
+	<div id="list">
+		<% for (File file : list ) { %>
+		<div data-modal-button="view" data-filename="<%= file.getName() %>" onclick="show();"><img src="pic/<%= file.getName() %>"></div>
+		<% } %>
+	</div>
+	
+	<div data-modal-window="view" data-modal-title="Image">
+		<img id="img1">
+		<hr>
+		<div>
+			<button class="ok" data-modal-ok="view">확인</button>
+		</div>
+	</div>
+	<hr>
+	
+	<form method="POST" action="ex21_ok.jsp" enctype="multipart/form-data">
+	<table class="vertical">
+		<tr>
+			<th>이미지</th>
+			<td><input type="file" name="attach" required accept="image/*"></td>
+		</tr>
+	</table>
+	<div>
+		<button>이미지 업로드</button>
+	</div>
+	</form>
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://bit.ly/4cMuheh"></script>
+	<script>
+		
+		document.querySelectorAll('#list > div').forEach((item)=>{
+			item.addEventListener('click', function() {
+				//alert();
+				alert(event.target.dataset['filename']);
+			});
+		});	
+	
+	</script>
+</body>
+</html>

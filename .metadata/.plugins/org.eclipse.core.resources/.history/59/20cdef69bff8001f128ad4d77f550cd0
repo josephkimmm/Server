@@ -1,0 +1,27 @@
+<%@page import="java.util.Calendar"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		/* 이 땅은 CSS 영역입니다.*/
+	</style>
+</head>
+<body>
+	<!-- ex01.jsp -->
+	<h1>제목입니다.</h1>
+	
+	<% 
+		//자바 영역입니다.
+		Calendar now = Calendar.getInstance();	%>
+	
+	<div>현재 시각은 <%= String.format("%tT", now) %>입니다.</div>
+	
+	<script>
+		//JavaScript 영역입니다.
+	</script>
+</body>
+</html>

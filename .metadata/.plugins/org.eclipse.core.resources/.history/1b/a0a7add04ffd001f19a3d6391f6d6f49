@@ -1,0 +1,49 @@
+package com.test.java;
+
+import java.net.ConnectException;
+import java.sql.Connection;
+
+public class Ex01 {
+    
+    public static void main(String[] args) {
+        
+        /*
+        
+            JDBC, Java Database Connectivity
+            - 영속성 계층(Persistence Layer) > 역할
+            - 중간 계층 > 위치
+            - Java 언어를 사용해서 관계형 데이터를 접근 + 조작해주는 계층
+            - 각종 API > 클래스들을 제공
+            - 자바 응용 프로그램 <- JDBC -> 오라클 데이터베이스
+            
+            1. JDBC
+            2. Spring JDBC
+            3. MyBatis
+            4. JPA
+            
+            JDBC Driver 설치
+            - 관련 클래스 가져오기 > *.jar 참조
+            - 어떤 DB 사용? > 오라클 사이트 접속 > JDBC 구현해놓은 jar 제공 > 다운로드 + 사용
+            - Oracle 설치 > Driver 같이 배포
+            - 빌드 도구를 통해서 참조 > Maven, Gradle 등..
+            
+            
+        
+        */
+        
+        //System.out.println(Connection.class);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

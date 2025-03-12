@@ -1,0 +1,35 @@
+package com.test.java;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Ex05 {
+
+    public static void main(String[] args) {
+        //Ex05.java
+        
+        // - CSR or SSR 크롤링
+        // - Selenium, HTMLUnit 등..
+        
+        //Selenium
+        // - 크롤링 전용 도구(X)
+        // - 자동화 테스트 도구(사람 대신 브라우징을 하는 프로그램)
+        
+        m1();
+    }
+
+    private static void m1() {
+        // 셀레니움 설치
+        //1. 셀레니움 드라이버(*.jar)
+        //2. 브라우저(크롬) 드라이버(*.exe)
+        
+        String webDriverId = "webdriver.chrome.driver";
+        String path = "C:\\class\\dev\\chromedriver.exe";
+        System.setProperty(webDriverId, path);
+        
+        WebDriver driver = new ChromeDriver();//브라우저
+        
+        String url = "https://naver.com";
+        driver.get(url);
+    }
+}

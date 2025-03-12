@@ -1,0 +1,59 @@
+package com.test.java;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class Ex04_Select {
+
+    public static void main(String[] args) {
+        
+        //Ex04_Select.java
+        m1();
+
+    }//
+
+    private static void m1() {
+        
+        //단일값 반환
+        //- 1행 1열
+        DBUtil util = new DBUtil();
+        Connection conn = null;
+        Statement stat = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            conn = util.open();
+            stat = conn.createStatement();
+            
+            String sql = "select count(*) as cnt from tblAddress";
+            
+            //결과셋의 참조 객체(rs)
+            //return값이 resultSet
+            //커서 개념
+            rs = stat.executeQuery(sql);//BOF
+            
+            rs.getInt(0);//제로베이스가 아님, 인덱스가 1부터 시작
+            
+            rs.next(); //커서 레코드 1줄 전진
+            
+            //현재 커서가 가르키고 있는 레코드의 원하는 컬럼 가져오기
+            //- rs.getXXX()
+            
+            //int count = rs.getInt(1);//컬럼순서
+            //int count = rs.getInt("cnt");//컬럼명(***)
+            String count = rs.getString("cnt");
+            
+            System.out.println(count);
+            
+            rs.close();
+            stat.close();
+            conn.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}

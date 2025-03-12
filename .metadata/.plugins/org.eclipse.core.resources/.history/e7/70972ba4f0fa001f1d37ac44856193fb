@@ -1,0 +1,91 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<style>
+	
+			
+	</style>
+</head>
+<body>
+	<!-- ex23_el.jsp -->
+	
+	<h1>EL</h1>
+	
+	<!-- 
+		<%= 100 %> out. println()
+	
+	 -->
+	<%
+		//자바 변수(데이터) > 화면 출력
+		int a = 10;
+		
+		//내장 객체
+		pageContext.setAttribute("b", 20);
+		request.setAttribute("c", 30);
+		session.setAttribute("d", 40);
+		session.setAttribute("b", 200);//컬렉션이 다르기때문에 위의 "b"와는 다르다.
+		
+	%>
+	<h2>표현식</h2>
+	<div>a: <%= a %></div>
+	<div>b: <%= pageContext.getAttribute("b") %></div>
+	<div>c: <%= request.getAttribute("c") %></div>
+	<div>d: <%= session.getAttribute("d") %></div>
+	<div>b: <%= session.getAttribute("b") %></div>
+	
+	<h2>EL</h2>
+	<div>a: ${a}</div>
+	<div>b: ${b}</div><!-- pageContext의 b -->
+	<div>b: ${pageContext.getAttribute("b")}</div>
+	<div>pageContext.b: ${pageScope.b}</div>
+	<div>session.b: ${sessionScope.b}</div>
+	<div>c: ${requestScope.c}</div>
+	<div>d: ${b}</div>
+	<!-- 
+	<div>c: ${request.getAttribute("c")}</div>
+	<div>d: ${session.getAttribute("b")}</div>
+	 -->
+	
+	<%
+	
+		pageContext.setAttribute("n1", 10);
+		pageContext.setAttribute("n2", 3);
+	
+	%>
+	 
+	<h2>EL 기능</h2>
+	
+	<h3>EL 연산 기능</h3>
+	
+	<div>n1 + 10 = <%= (int)pageContext.getAttribute("n1") + 10 %></div>
+	<div>n1 + 10 = ${n1} + 10</div>
+	<div>n1 + 10 = ${n1 + 10}</div>
+	
+	<div>n1 + n2 = <%= (int)pageContext.getAttribute("n1") + (int)pageContext.getAttribute("n2") %></div>
+	<div>n1 + n2 = ${n1} + ${n2}</div>
+	
+	<div>n1 + n2 = ${n1 + n2}</div>
+	<div>n1 - n2 = ${n1 - n2}</div>
+	<div>n1 * n2 = ${n1 * n2}</div>
+	<div>n1 / n2 = ${n1 / n2}</div>
+	<div>n1 % n2 = ${n1 % n2}</div>
+	<div>n1 mod n2 = ${n1 mod n2}</div>
+	
+	<hr>
+	
+	<div>n1 > n2 = ${n1 > n2 }</div>
+	<div>n1 &gt; n2 = ${n1 gt n2 }</div>
+	<div>n1 < n2 = ${n1 < n2 }</div>
+	<div>n1 &lt; n2 = ${n1 lt n2 }</div>
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://bit.ly/4cMuheh"></script>
+	<script>
+		
+	</script>
+</body>
+</html>

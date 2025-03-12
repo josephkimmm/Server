@@ -1,0 +1,76 @@
+package com.test.java.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.test.util.DBUtil;
+
+//서블릿(X)
+//서블릿 > 업무 위임 > 일반 클래스(O)
+
+//Data Access Object > 데이터 작업 전문가 or 담당자 > JDBC
+public class TodoDAO {
+
+    private Connection conn;
+    private Statement stat;
+    private PreparedStatement pstat;
+    private ResultSet rs;
+    private DBUtil util;
+    
+    public TodoDAO() {
+        try {
+            
+            this.util = new DBUtil();
+            this.conn = util.open();
+            this.stat = conn.createStatement();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    //할일 목록을 달라고 요청
+    public ArrayList<TodoDTO> list() {
+        
+        try {
+            
+            String sql = "select * from tblTodo order by seq desc";
+            
+            rs = stat.executeQuery(sql);
+            
+            //return rs; > 변환 > 누구나 다 알 수 있는 자료
+            //- TodoDTO: 레코드 1줄
+            //- ArrayList<TOdoDTO>: 레코드 N줄 == 테이블 == ResultSet
+            
+            //rs안에 있는 모든 데이터 > 복사 > list
+            ArrayList<TodoDTO> list = new ArrayList<>();
+            
+            while (rs.next()) {
+                
+                //레코드 1줄 > TodoDTO 1개에 옮겨담기
+                TodoDTO dto = new TodoDTO();
+                
+                dto.setSeq(rs.getString("seq"));
+                dto.setTodo(rs.getString("todo"));
+                dto.setState(rs.getString("state"));
+                dto.setRegdate(rs.getString("regdate"));
+                
+                list.add(dto);
+                
+            }
+            
+            rs.close();
+            
+            return list;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
+}

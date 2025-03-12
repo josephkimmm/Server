@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	//POST > 인코딩
+	request.setCharacterEncoding("UTF-8");
+
+	//request.getParameter(String key)
+	//1. 컨트롤 값 입력되면 > 입력값 반환
+	//2. 입력을 안하면 > ""반환
+	//3. 잘못된 key 입력시 or key 존재안하면 > null 반환
+
+	//텍스트 박스
+	String txt1 = request.getParameter("txt");
+	
+	System.out.println(txt1 == null);//false
+	System.out.println(txt1 =="");//true
+	
+	//암호상자
+	String txt2 = request.getParameter("txt2");
+%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<!-- ex10_ok.jsp -->
+	
+	<h1>결과</h1>
+	
+	<h2>텍스트 박스</h2>
+	<div><%= txt1 %></div>
+	
+	<h2>암호 상자</h2>
+	<div><%= txt2 %></div>
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://bit.ly/4cMuheh"></script>
+	<script>
+		
+	</script>
+</body>
+</html>

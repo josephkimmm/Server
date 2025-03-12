@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<!-- ex04.jsp -->
+	<h1>주소록</h1>
+	
+	<ul id="list1">
+	   <li><span>홍길동</span><span>(서울시)</span></li>   
+	   <li><span>아무개</span><span>(인천광역시)</span></li>   
+	   <li><span>강아지</span><span>(부산광역시)</span></li>   
+	   <li><span>고양이</span><span>(광주광역시)</span></li>   
+	   <li><span>송아지</span><span>(제주특별자치도)</span></li>   
+	</ul>
+	
+	<hr>
+	
+	<ul id="list2"></ul>
+	
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://bit.ly/4cMuheh"></script>
+	<script>
+		const list = [
+			 {
+				 name:"김씨",
+				 address: "강릉시"
+				 
+			 },
+			 {
+                 name:"이씨",
+                 address: "속초시"
+                 
+             },
+             {
+                 name:"호랑이",
+                 address: "원주시"
+                 
+             },
+             {
+                 name:"박씨",
+                 address: "포항시"
+                 
+             },
+             {
+                 name:"핸드폰",
+                 address: "대구광역시"
+                 
+             }
+		];
+		
+		$(list).each((index, item) => {
+			$('#list2').append('
+			 <li>
+			    <span>1</span>
+			    <span>2</span>
+			 </li>
+			');
+		});
+		
+	</script>
+</body>
+</html>

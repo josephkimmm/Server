@@ -1,0 +1,53 @@
+package com.test.java;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Ex03_Receive extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	
+    	//<input type="text" name="name">
+    	String name = req.getParameter("name");
+    	
+    	//<input type="number" name="age">
+    	String age = req.getParameter("age");
+    	
+    	//잘받았다고 결과 페이지 생성 > 반환
+    	req.setCharacterEncoding("UTF-8");
+    	PringWriter writer = req.set;
+    }
+    
+	writer.write("""
+			<html>
+			<head>
+				<meta charset="UTF-8">
+			</head>
+			<body>
+				<h1>보내기</h1>
+				<form method="GET" action="/servlet/ex03_receive.do">
+				<table border="1" width="300">
+					<tr>
+						<th>이름</th>
+						<td><input type="text" name="name"</td>
+					</tr>
+					<tr>
+						<th>나이</th>
+						<td><input type="number" name="age" size="10"></td>
+					</tr>
+				</table>
+				<div style="margin-top:10px">
+					<button>보내기</button>
+				</div>
+				</form>
+			</body>
+			</html>
+				""");
+	
+	writer.close();
+}

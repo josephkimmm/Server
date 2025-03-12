@@ -1,0 +1,79 @@
+package com.test.java;
+
+import java.net.ConnectException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Ex01 {
+    
+    public static void main(String[] args) {
+        
+        /*
+        
+            JDBC, Java Database Connectivity
+            - 영속성 계층(Persistence Layer) > 역할
+            - 중간 계층 > 위치
+            - Java 언어를 사용해서 관계형 데이터를 접근 + 조작해주는 계층
+            - 각종 API > 클래스들을 제공
+            - 자바 응용 프로그램 <- JDBC -> 오라클 데이터베이스
+            
+            1. JDBC
+            2. Spring JDBC
+            3. MyBatis
+            4. JPA
+            
+            JDBC Driver 설치
+            - 관련 클래스 가져오기 > *.jar 참조
+            - 어떤 DB 사용? > 오라클 사이트 접속 > JDBC 구현해놓은 jar 제공 > 다운로드 + 사용
+            - Oracle 설치 > Driver 같이 배포
+            - 빌드 도구를 통해서 참조 > Maven, Gradle 등..
+            
+            
+        
+        */
+        
+        //System.out.println("[데이터베이스 접속하기]");
+        //java.sql.Connection
+        Connection conn = null;
+        
+        //접속 정보 >미리 문자열 >연결 문자열(Connection String)
+        String url = "jdbc:oracle:thin:@localhost:1521:xe";
+        String id = "server";
+        String pw = "java1234";
+        
+        //String url = "jdbc:mysql://localhost/testDB?serverTimezone=UTC";
+        
+        //JDBC 작업 > java입장에서 외부 입출력 > 예외처리 필수
+        try {
+            
+            //JDBC 드라이버 로딩
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            
+            //DB 연결
+            //- DriverManager가 DB 연결을 하고 > 연결 정보를 가지고 있는 Connection 객체를 반환한다.
+            conn = DriverManager.getConnection(url, id, pw);
+            
+            //현재 오라클의 접속 상태?
+            System.out.println(conn.isClosed());
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

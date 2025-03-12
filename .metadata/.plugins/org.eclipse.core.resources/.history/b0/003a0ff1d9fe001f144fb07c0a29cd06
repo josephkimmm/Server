@@ -1,0 +1,36 @@
+package com.test.java;
+
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+public class Ex04 {
+
+    public static void main(String[] args) {
+        // Ex04
+        
+        m1();
+
+    }
+
+    private static void m1() {
+        // 정적 콘텐츠 크롤링 > list1
+         try {
+            Document doc = Jsoup.connect("http://localhost:8090/crawling/ex04.jsp").get();
+            Elements list =     doc.select("list1 > lis");
+            for (Element li : list) {
+                System.out.println(li.firstElementChild().text());
+                System.out.println(li.lastElementChild().text());
+                System.out.println();
+            }
+        } catch (IOException e) {
+            
+            e.printStackTrace();
+        }
+        
+    }
+
+}

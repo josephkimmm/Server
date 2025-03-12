@@ -1,0 +1,53 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+
+	request.setCharacterEncoding("UTF-8");
+
+	//enctype = "application/x-ww-form-urlencoded";
+	//- request.getParameter() > 정상 동작
+	
+	//enctype="multipart/form-data"
+
+	//String txt = request.getParameter("txt");
+	//String attach = request.getParameter("attach");
+	//System.out.println(txt); //null
+	//System.out.println(attach); //null
+	
+	//request.getParameter()
+	//- 기존의 request > cos.jar 제공 request 사용
+	//- mulitPartRequest(cos.jar)
+	//- 기존의 request를 wrapping 객체 => 그 전에 request가 하던일을 한다.
+	//- 파일 업로드 처리 구현
+	
+	//업로드 파일을 저장할 경로를 지정
+	//- 로컬 경로로 지정(드라이브명으로 시작)
+	//- 관리차원 > 프로젝트 폴더 하위에 생성
+	//- webapp > "files"
+	//String path = "C:\class\code\client\JPSTest\src\main\webapp\files";
+	
+	String path = application.getRealPath("/files");
+	
+	System.out.println(path);
+%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<!-- ex19_ok.jsp -->
+	
+	
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://bit.ly/4cMuheh"></script>
+	<script>
+		
+	</script>
+</body>
+</html>

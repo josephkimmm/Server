@@ -1,0 +1,15 @@
+package com.test.java;
+
+public class Ex05 {
+
+    public static void main(String[] args) {
+        //Ex05.java
+        
+        // - CSR or SSR 크롤링
+        // - Selenium, HTMLUnit 등..
+        
+        //Selenium
+        // - 크롤링 전용 도구(X)
+        // - 자동화 테스트 도구
+    }
+}

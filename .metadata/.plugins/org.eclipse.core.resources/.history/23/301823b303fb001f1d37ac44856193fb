@@ -1,0 +1,128 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- prefix="c" => 네임스페이스 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<!-- ex24_jstl.jsp -->
+	<h1>JSTL</h1>
+	
+	<h2>변수 선언</h2>
+	<%
+		int a = 10;//지역변수
+		pageContext.setAttribute("b", 20);//pageContext 변수
+	%>
+	
+	<c:set var="c" value="30" /> 
+	<!-- 형태는 태그이지만 XML문법을 따름. -->
+	
+	<div>a: <%= a %></div>
+	<div>a: ${a}</div>
+	
+	<div>b: <%= pageContext.getAttribute("b") %></div>
+	<div>b: ${b}</div>
+	
+	<%-- <div>c: <%= c %></div> --%>
+	<div>c: ${pageScope.c}</div>
+	<div>c: $requestScope.c}</div>
+	<div>c: ${sessionScope.c}</div>
+	<div>c: ${applicationScope.c}</div>
+	
+	<h2>변수 수정하기</h2>
+	<c:set var="c" value="50" /><!-- 같은 키가 있으면 덮어쓰기됨 -->
+	<div>c: ${c}</div>
+	
+	<h2>변수 삭제하기</h2>
+	<c:remove var="c" />
+	<div>c: ${c}</div>
+	
+	<h2>변수 상태</h2>
+	<c:set var="c" /> <!-- null -->
+	<c:set var="c" value="" />
+	<c:set var="c" value="null" /> <!-- 자바의 null이 아니라 "null" 문자열 -->
+	<div>c: ${c}</div>
+	<div>c: ${empty c}</div>
+	<div>d: ${empty d}</div>
+	
+	<h2>조건문</h2>
+	<c:set var="num" value="10" />
+	
+	<c:if test="${num > 0}"><!-- 내장객체로 들어있는건 무조건 EL로 꺼내야한다. -->
+		<div>${num}은 양수입니다.</div>
+	</c:if>
+	<!-- else절은 만들 수 없다. 추가로 if문을 만들어야함-->
+	<c:if test="${num < 0 }">
+		<div>${num}은 음수입니다.</div>
+	</c:if>
+	
+	<h2>조건문(다중if문)</h2>
+	<c:choose>
+		<c:when test="${num > 0}"> 양수</c:when>
+		<c:when test="${num < 0}"> 음수</c:when>
+		<c:otherwise>영</c:otherwise>
+	</c:choose>
+	
+	<h2>반복문(일반 for + 향상된 for)</h2>
+	
+	<% for (int i=0; i<=10; i++) {%>
+		<div>숫자: <%= i %></div>
+	<% } %>
+	
+	<c:forEach var="i" begin="1" end="10" step="1"><!-- step은 음수X -->
+		<div>숫자: ${i}</div>
+		<%-- <div>숫자: ${11 - i}</div> --%>
+	</c:forEach>
+	
+	<%
+		String[] names = {"홍길동", "아무개", "강아지", "고양이", "병아리" };
+		pageContext.setAttribute("names", names);
+	%>
+	<!-- java for (String name : names) -->
+	<c:forEach var="name" items="${names}">
+		<div>${name}</div>
+	</c:forEach>
+	
+	<table>
+		<tr>
+			<th>이름</th>
+			<th>인덱스</th>
+			<th>카운트</th>
+			<th>current</th>
+			<th>first</th>
+			<th>last</th>
+		</tr>
+		<c:forEach items="${names}" var="name" varStatus="status">
+		
+		<c:if test="${status.index mod 2 == 0}">
+		<tr style="background-color: gold;">
+		</c:if>
+		
+		<c:if test="${status.index mod 2 == 1}">
+		<tr>
+		</c:if>
+			<td>${name}</td>
+			<td>${status.index}</td><!-- 0부터 시작 -->
+			<td>${status.count}</td><!-- 1부터 시작 -->
+			<td>${status.current}</td><!-- 현재 가져오게될 요소 -->
+			<td>${status.first}</td>
+			<td>${status.last}</td>
+		</tr>
+		</c:forEach>
+	</table>
+	
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://bit.ly/4cMuheh"></script>
+	<script>
+		
+	</script>
+</body>
+</html>

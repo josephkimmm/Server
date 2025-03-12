@@ -1,0 +1,143 @@
+package com.test.java;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class Ex04_Select {
+
+    public static void main(String[] args) {
+        
+        //Ex04_Select.java
+        //m1();
+        //m2();
+        m3();
+
+    }//
+
+    private static void m3() {
+        //다중값 반환
+        // - 1행 1열
+        DBUtil util = new DBUtil();
+        Connection conn = null;
+        Statement stat = null;
+        ResultSet rs = null;
+        
+        try {
+            conn = util.open();
+            stat = conn.createStatement();
+            
+            String sql = "select * from tblAddress where seq = 10";
+            
+            rs = stat.executeQuery(sql);
+            
+            //java.sql.SQLException: 부적합한 열 이름
+            //java.sql.SQLException: 마지막 행 다음의 결과 집합
+            
+            //
+            
+            if (rs.next()) {
+                
+                String name = rs.getString("name");
+                String age = rs.getString("age");                
+                String address = rs.getString("address");
+                
+                System.out.println(name);
+                System.out.println(age);
+                System.out.println(address);
+                
+            } else {
+                System.out.println("not found");
+            }
+            
+            rs.close();
+            stat.close();
+            conn.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    private static void m2() {
+        DBUtil util = new DBUtil();
+        Connection conn = null;
+        Statement stat = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            conn = util.open();
+            stat = conn.createStatement();
+            
+            String sql = "select name from tblAddress where seq = 1";
+            
+            rs = stat.executeQuery(sql);//BOF
+            
+            //rs.getInt(1);//제로베이스가 아님, 인덱스가 1부터 시작
+            
+            if (rs.next()) {; //** 문제 발생 가능
+            
+                //java.sql.SQLException: 마지막 행 다음의 결과 집합
+                //EOF로 넘어감
+                String name = rs.getString("name");//문제 발생
+            
+                System.out.println(name);
+            } else {
+                System.out.println("데이터 없음");
+            }
+            
+            rs.close();
+            stat.close();
+            conn.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void m1() {
+        
+        //단일값 반환
+        //- 1행 1열
+        DBUtil util = new DBUtil();
+        Connection conn = null;
+        Statement stat = null;
+        ResultSet rs = null;
+        
+        try {
+            
+            conn = util.open();
+            stat = conn.createStatement();
+            
+            String sql = "select count(*) as cnt from tblAddress";
+            
+            //결과셋의 참조 객체(rs)
+            //return값이 resultSet
+            //커서 개념
+            rs = stat.executeQuery(sql);//BOF
+            
+            rs.getInt(0);//제로베이스가 아님, 인덱스가 1부터 시작
+            
+            rs.next(); //커서 레코드 1줄 전진
+            
+            //현재 커서가 가르키고 있는 레코드의 원하는 컬럼 가져오기
+            //- rs.getXXX()
+            
+            //int count = rs.getInt(1);//컬럼순서
+            //int count = rs.getInt("cnt");//컬럼명(***)
+            String count = rs.getString("cnt");
+            
+            System.out.println(count);
+            
+            rs.close();
+            stat.close();
+            conn.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}

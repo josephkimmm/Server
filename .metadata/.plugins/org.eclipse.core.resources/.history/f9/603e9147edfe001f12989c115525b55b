@@ -1,0 +1,45 @@
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="com.test.util.DBUtil"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+
+//1. 데이터 가져오기(id, pw)
+//2. DB 작업 > select id, pw
+//3. 결과
+//  3.1 맞다. -> 인증 티켓 발급(***)
+//  3.2 틀리다. -> 경고
+
+    //1. 
+    String id = request.getParameter("id"); 
+    String pw = request.getParameter("pw");
+    
+    //2. 
+    DBUtil util = new DBUtil();
+    Connection conn = util.open();
+    
+    //String sql = "select count(*) as cnt from tblUser where id = ? and pw = ?";
+    String sql = "select * from tblUser where id = ? and pw = ?"; //로그인 정보 외에 추가 정보 필요시
+    PreparedStatement stat = conn.prepareStatement(sql);
+%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<!-- loginok.jsp 로그인 처리 페이지 > 인증 -->
+	
+	
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script src="https://bit.ly/4cMuheh"></script>
+	<script>
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+package com.test.java;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+public class Ex06_CallableStatement {
+
+    public static void main(String[] args) {
+        //Ex06_CallableStatement
+
+        //temp();
+        m1();
+        
+    }//main
+
+    private static void m1() {
+        DBUtil util = new DBUtil();
+        Connection conn = null;
+        CallableStatement stat = null;
+        ResultSet rs = null;
+        
+        try {
+            conn = util.open();
+            
+            
+            
+            conn.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    private static void temp() {
+        
+        DBUtil util = new DBUtil();
+        Connection conn = null;
+        CallableStatement stat = null;
+        ResultSet rs = null;
+        
+        try {
+            conn = util.open();
+            
+            String sql = "{call procM1}"; //{} block처리를 해야 PL-SQL 인식을 함.
+            
+            stat = conn.prepareCall(sql);
+            
+            int result = stat.executeUpdate();
+            System.out.println(result);
+            
+            stat.close();
+            conn.close();
+            
+            //JDBC에서 SQL 실행 환경 > ANSI > call(ANSI 표준 문법)
+            conn.close();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+}

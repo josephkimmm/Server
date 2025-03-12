@@ -1,0 +1,13 @@
+AbstractTextEditor.Color.Foreground=244,244,244
+eclipse.preferences.version=1
+removeSpacesAsTabs=true
+showCarriageReturn=false
+showEnclosedIdeographicSpaces=false
+showEnclosedTabs=false
+showLeadingIdeographicSpaces=false
+showLeadingTabs=false
+showLineFeed=false
+showTrailingIdeographicSpaces=false
+showTrailingTabs=false
+spacesForTabs=true
+wordwrap.enabled=true
