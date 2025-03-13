@@ -1,5 +1,5 @@
-GitRepositoriesView.GitDirectories=C\:\\Users\\user\\git\\Java-Html\\.git;
-GitRepositoriesView.GitDirectories.relative=C\:\\Users\\user\\git\\Java-Html\\.git;
+GitRepositoriesView.GitDirectories=C\:\\Users\\user\\git\\Java-Html\\.git;C\:\\class\\code\\client\\.git;
+GitRepositoriesView.GitDirectories.relative=C\:\\Users\\user\\git\\Java-Html\\.git;.git;
 RepositoryGroups.uuids=
 core_git_servers=
 eclipse.preferences.version=1

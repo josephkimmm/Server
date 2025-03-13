@@ -13,4 +13,6 @@ insert into tblTodo values (seqTodo.nextVal, '컴퓨터 포맷하기', default, 
 
 select * from tblTodo;
 
+delete 
+
 
