@@ -11,6 +11,8 @@ public class Ex03 {
     
         BookDAO dao = new BookDAO();
         
+        System.out.println(1111);
+        
         ArrayList<BookDTO> list = dao.search("스프링부트", "1");
         
         for (BookDTO dto : list) {

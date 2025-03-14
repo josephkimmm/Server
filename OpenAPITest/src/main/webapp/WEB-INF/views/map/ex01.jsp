@@ -23,7 +23,7 @@
     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://bit.ly/4cMuheh"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=be246c2a3021a8814794b9367c6f0ccf"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=909d6d857bd3d609a81d02972cddd225"></script>
     <script>
     
         const container = document.getElementById('map');

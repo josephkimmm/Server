@@ -16,6 +16,8 @@ public class Test extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+	    System.out.println(1111);
+	    
 		Random rnd = new Random();
 		String[] stat = { "당첨!!", "꽝;;", "다시 한번 기회를~" };
 		

@@ -14,8 +14,10 @@ public class Ex01 extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+	    
 		//Ex01.java
-		String no = req.getParameter("no"); //ex01.do?no=01
+		//String no = req.getParameter("no"); //ex01.do?no=01
+		String no = "03";
 
 		req.getRequestDispatcher("/WEB-INF/views/map/ex" + no + ".jsp").forward(req, resp);
 	}
