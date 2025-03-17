@@ -31,8 +31,8 @@
 		<item key="pageIndex" value="2"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.preferences.EditTemplateDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="-643"/>
-		<item key="DIALOG_Y_ORIGIN" value="-146"/>
+		<item key="DIALOG_X_ORIGIN" value="-644"/>
+		<item key="DIALOG_Y_ORIGIN" value="-103"/>
 		<item key="DIALOG_WIDTH" value="1920"/>
 		<item key="DIALOG_HEIGHT" value="1032"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.75|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|50|맑은 고딕"/>

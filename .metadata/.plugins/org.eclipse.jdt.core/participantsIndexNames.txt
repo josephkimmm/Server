@@ -19,6 +19,8 @@ C:\class\code\client\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\21687
 \AuthTest\src\main\java
 C:\class\code\client\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2554342885.index
 \OpenAPITest\src\main\java
+C:\class\code\client\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2753593782.index
+\AjaxTest\src\main\java
 C:\class\code\client\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3594963759.index
 \MVCTest\src\main\java
 C:\class\code\client\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1696431218.index
