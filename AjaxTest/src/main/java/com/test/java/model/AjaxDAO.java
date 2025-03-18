@@ -103,6 +103,94 @@ public class AjaxDAO {
         
     }
 
+    public int checkId(String id) {
+        
+        try {
+            
+            String sql = "select count(*) as cnt from tblUser where id = ?";
+            pstat = conn.prepareStatement(sql);
+            pstat.setString(1, id);
+            
+            rs = pstat.executeQuery();
+            
+            if (rs.next()) {
+                return rs.getInt("cnt");
+            }
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
+
+    public ArrayList<UserDTO> listUser() {
+        
+        try {
+            
+            String sql = "select * from tblUser";
+            
+            rs = stat.executeQuery(sql);
+            
+            ArrayList<UserDTO> list = new ArrayList<UserDTO>();
+            
+            while(rs.next()) {
+                UserDTO dto = new UserDTO();
+                
+                dto.setId(rs.getString("id"));
+                dto.setPw(rs.getString("pw"));
+                dto.setName(rs.getString("name"));
+                dto.setLv(rs.getString("lv"));
+                
+                list.add(dto);
+                
+            }
+            
+            return list;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
+
+    public ArrayList<ZipCodeDTO> listZipCode(String dong) {
+        
+        try {
+            
+            String sql = "select * from zipcode where dong like '%' || ? || '%'";
+            pstat = conn.prepareStatement(sql);
+            pstat.setString(1, dong);
+            
+            rs = pstat.executeQuery();
+            
+            ArrayList<ZipCodeDTO> list = new ArrayList<ZipCodeDTO>();
+            
+            while(rs.next()) {
+                //레코드 1줄 > DTO 1개
+                ZipCodeDTO dto = new ZipCodeDTO();
+                
+                dto.setSeq(rs.getString("seq"));
+                dto.setSido(rs.getString("sido"));
+                dto.setGugun(rs.getString("gugun"));
+                dto.setDong(rs.getString("dong"));
+                dto.setBunji(rs.getString("bunji"));
+                dto.setZipcode(rs.getString("zipcode"));
+                
+                list.add(dto);
+            }
+            
+            return list;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
+
 }
 
 

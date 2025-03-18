@@ -49,7 +49,7 @@
 	</section>
 	<section name="NewClassWizardPage">
 		<item key="create_constructor" value="false"/>
-		<item key="create_unimplemented" value="false"/>
+		<item key="create_unimplemented" value="true"/>
 	</section>
 	<section name="OverrideMethodDialog">
 		<item key="showtypes" value="true"/>
@@ -160,5 +160,12 @@
 		<item key="updateTextualMatches" value="false"/>
 		<item key="updateQualifiedNames" value="false"/>
 		<item key="patterns" value="*"/>
+	</section>
+	<section name="NewEnumCreationWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="680"/>
+		<item key="DIALOG_Y_ORIGIN" value="155"/>
+		<item key="DIALOG_WIDTH" value="576"/>
+		<item key="DIALOG_HEIGHT" value="554"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.75|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|50|맑은 고딕"/>
 	</section>
 </section>

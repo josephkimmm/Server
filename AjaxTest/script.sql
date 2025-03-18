@@ -28,3 +28,5 @@ update tblSurvey set
 commit;
 
 select * from tabs;
+
+select * from tblUser;
