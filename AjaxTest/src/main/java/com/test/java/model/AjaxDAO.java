@@ -191,6 +191,153 @@ public class AjaxDAO {
         return null;
     }
 
+    public int add(CatDTO dto) {
+        
+        try {
+            
+            String sql = "insert into tblCat (catid, src, x, y) values (?, ?, 0, 0)";
+            
+            pstat = conn.prepareStatement(sql);
+            pstat.setString(1, dto.getCatid());
+            pstat.setString(2, dto.getSrc());
+            
+            return pstat.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
+
+    public int getMaxCatId() {
+        
+        try {
+            
+            String sql = "select nvl(max(to_number(catid)), 0) as catid from tblCat"; //null 값을 0으로 치환
+            
+            rs = stat.executeQuery(sql);
+            
+            if (rs.next()) {
+                //System.out.println("catid: " + rs.getString("catid"));
+                return rs.getInt("catid"); //DB null값을 숫자 0으로 변환
+                
+            }
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
+
+    public int edit(CatDTO dto) {
+        
+        try {
+            
+            String sql = "update tblCat set x = ?, y = ?  where catid= ?";
+            
+            pstat = conn.prepareStatement(sql);
+            pstat.setString(1, dto.getX());
+            pstat.setString(2, dto.getY());
+            pstat.setString(3, dto.getCatid());
+            
+            return pstat.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+    }
+
+    public ArrayList<CatDTO> listCat() {
+        
+        try {
+            
+            String sql = "select * from tblCat order by to_number(catid) asc";
+            
+            rs = stat.executeQuery(sql);
+            
+            ArrayList<CatDTO> list = new ArrayList<CatDTO>();
+            
+            while(rs.next()) {
+                
+                CatDTO dto = new CatDTO();
+                dto.setCatid(rs.getString("catid"));
+                dto.setSrc(rs.getString("src"));
+                dto.setX(rs.getString("x"));
+                dto.setY(rs.getString("y"));
+                list.add(dto);
+            
+            }
+            
+            return list;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
+
+    public int addAddress(AddressDTO dto) {
+        
+        try {
+            
+            String sql = "insert into tblAddress (seq, name, age, gender, tel, address, regdate) values (seqAddress.nextVal, ?, ?, ?, ?, ?, default)";
+            
+            pstat = conn.prepareStatement(sql);
+            pstat.setString(1, dto.getName());
+            pstat.setString(2, dto.getAge());
+            pstat.setString(3, dto.getGender());
+            pstat.setString(4, dto.getTel());
+            pstat.setString(5, dto.getAddress());
+            
+            return pstat.executeUpdate();//ajax가 최종적으로 이 값을 돌려받는다.
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return 0;
+        }
+
+    public ArrayList<AddressDTO> listAddress() {
+        
+            try {
+            
+            String sql = "select * from tblAddress order by seq desc";//새로운 사람을 위로 정렬
+            
+            rs = stat.executeQuery(sql);
+            
+            ArrayList<AddressDTO> list = new ArrayList<AddressDTO>();
+            
+            while(rs.next()) {
+                
+                AddressDTO dto = new AddressDTO();
+                
+                dto.setSeq(rs.getString("seq"));
+                dto.setName(rs.getString("name"));
+                dto.setAge(rs.getString("age"));
+                dto.setGender(rs.getString("gender"));
+                dto.setTel(rs.getString("tel"));
+                dto.setAddress(rs.getString("address"));
+                dto.setRegdate(rs.getString("regdate"));
+                list.add(dto);
+            
+            }
+            
+            return list;
+            
+            } catch (Exception e) {
+            e.printStackTrace();
+            }
+        
+    
+        return null;
+    }
 }
 
 

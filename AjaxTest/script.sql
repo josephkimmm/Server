@@ -30,3 +30,30 @@ commit;
 select * from tabs;
 
 select * from tblUser;
+
+
+--고양이 Drag&Drop
+--프로젝트  > 조직도 편성 or 주차장 도면 편집
+create table tblCat (
+    catid varchar2(50) primary key,     --<img id="cat">
+    src varchar2(100) not null,           --<img src="images/catty01.png>
+    x number not null,
+    y number not null
+);
+
+commit;
+
+select * from tblCat order by to_number(catid) desc;
+ 
+select max(to_number(catid)) as catid from tblCat; --3
+
+insert into tblCat values ('15', '01', 0, 0); --최대값이 15가 나와야하는데 여전히 3이 출력 > catid가 varchar2로 되어있기 때문에 숫자로 변환 필요
+delete from tblCat where catid = '15';
+
+delete from tblCat;
+
+commit;
+
+select * from tblAddress order by seq asc;
+
+delete from tblAddress where seq=2;

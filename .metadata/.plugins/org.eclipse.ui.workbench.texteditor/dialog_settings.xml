@@ -16,6 +16,8 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="["/>
+			<item value="[]"/>
 			<item value="null"/>
 			<item value="/todo/addok.do"/>
 			<item value="/WEB-INF/views/main.jsp"/>
