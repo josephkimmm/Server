@@ -63,9 +63,7 @@
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
     <Connector connectionTimeout="20000" maxParameterCount="1000" port="8090" protocol="HTTP/1.1" redirectPort="8443"/>
-    <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol" 
-maxThreads="150" SSLEnabled="true" scheme="https" secure="true" clientAuth="false" 
-keyAlias="https" keystoreFile="C:\class\dev\ssl\.keystore" keystorePass="java1234" sslProtocol="TLS" />
+    <Connector SSLEnabled="true" clientAuth="false" keyAlias="https" keystoreFile="C:\class\dev\ssl\.keystore" keystorePass="java1234" maxThreads="150" port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol" scheme="https" secure="true" sslProtocol="TLS"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -165,7 +163,7 @@ keyAlias="https" keystoreFile="C:\class\dev\ssl\.keystore" keystorePass="java123
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="TodoList" path="/todo" reloadable="true" source="org.eclipse.jst.jee.server:TodoList"/><Context docBase="ServletTest" path="/Servlet" reloadable="true" source="org.eclipse.jst.jee.server:ServletTest"/><Context docBase="AuthTest" path="/authtest" reloadable="true" source="org.eclipse.jst.jee.server:AuthTest"/><Context docBase="MVCTest" path="/mvc" reloadable="true" source="org.eclipse.jst.jee.server:MVCTest"/><Context docBase="Memo" path="/memo" reloadable="true" source="org.eclipse.jst.jee.server:Memo"/><Context docBase="CrawlingTest" path="/crawlingtest" reloadable="true" source="org.eclipse.jst.jee.server:CrawlingTest"/><Context docBase="JPSTest" path="/jsp" reloadable="true" source="org.eclipse.jst.jee.server:JPSTest"/><Context docBase="OpenAPITest" path="/api" reloadable="true" source="org.eclipse.jst.jee.server:OpenAPITest"/><Context docBase="AjaxTest" path="/ajax" reloadable="true" source="org.eclipse.jst.jee.server:AjaxTest"/></Host>
+      <Context docBase="TodoList" path="/todo" reloadable="true" source="org.eclipse.jst.jee.server:TodoList"/><Context docBase="ServletTest" path="/Servlet" reloadable="true" source="org.eclipse.jst.jee.server:ServletTest"/><Context docBase="AuthTest" path="/authtest" reloadable="true" source="org.eclipse.jst.jee.server:AuthTest"/><Context docBase="MVCTest" path="/mvc" reloadable="true" source="org.eclipse.jst.jee.server:MVCTest"/><Context docBase="Memo" path="/memo" reloadable="true" source="org.eclipse.jst.jee.server:Memo"/><Context docBase="CrawlingTest" path="/crawlingtest" reloadable="true" source="org.eclipse.jst.jee.server:CrawlingTest"/><Context docBase="JPSTest" path="/jsp" reloadable="true" source="org.eclipse.jst.jee.server:JPSTest"/><Context docBase="OpenAPITest" path="/api" reloadable="true" source="org.eclipse.jst.jee.server:OpenAPITest"/><Context docBase="AjaxTest" path="/ajax" reloadable="true" source="org.eclipse.jst.jee.server:AjaxTest"/><Context docBase="Project" path="/project" reloadable="true" source="org.eclipse.jst.jee.server:Project"/></Host>
     </Engine>
   </Service>
 </Server>

@@ -1,10 +1,10 @@
-<%@page import="com.test.java.data.MyUtil" %>
+<%@page import="com.test.java.MyUtil" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%	
 	//자바 영역(?) > service 메서드의 내부 영역
 	int num = 10; //무슨 변수?(멤버 변수 or 지역 변수) > 지역 변수
-			
+			s
 	/* 
 	public void test() {
 		

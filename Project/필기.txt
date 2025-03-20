@@ -1,0 +1,132 @@
+새 프로젝트
+- New > Dynamic Web Project
+	- "Project"
+	- Context Root("project")
+	- web.xml 체크(O)
+
+토이 프로젝트
+	
+1. 주제
+- 메모장 + 회원 관리
+
+2. 요구 분석
+- 회원
+	- 가입
+	- 탈퇴(?)
+	- 로그인
+	- 로그아웃
+	- 개인 정보
+- 메모장
+	- 작성/삭제 등
+- 알림(쪽지)
+
+3. 페이지 구조도 + 아키텍처(그림)
+
+4. 화면 설계 및 스토리 보드
+		
+5. 데이터베이스
+	- ERD
+	
+6. 스크립트
+	- DDL, DML
+	- 더미 데이터, 기초 데이터
+	- PL/SQL 객체(뷰, 트리거 등..)
+	- Project > "script.sql"
+
+7. 구현
+
+7.1 라이브러리
+	- json-simple
+	- jstl
+	- lombok
+	- ojdbc
+	- cos
+
+7.2 테스트 패키지
+	- 업무 코드와 테스트 코드를 분리 용도
+	- "com.test.java.test"
+		- "ConnectionTest.java"
+		
+7.3 파일
+	- 회원
+	- "com.test.java.user" > "Register.java"	//회원 가입 폼
+	                       > "RegisterOk.java"  //회원 가입 처리
+	                       > "Login.java"		//로그인 폼
+	                       > "LoginOk.java"		//로그인 처리
+	                       > "LogoutOk.java"	//로그아웃 처리
+	                       > "Info.java"		//자기 정보
+	                       
+	                       > "SendMail.java"	//인증 메일 발송(ajax)
+	                       > "MailSender.java"	//메일 발송기
+	                       > "DelMail.java" 	//인증 메일 > 레코드 삭제
+	                       > "ValidMail.java"	//검증
+	                       
+	- views > "user" > "register.jsp"
+	                 > "login.jsp"
+	                 > "info.jsp"
+
+	- 메모장
+	- "com.test.java.memo" > "List.java" 	//목록보기
+						   > "View.java" 	//상세보기
+						   > "Add.java"		//쓰기 폼
+						   > "AddOk.java"	//쓰기 처리                                   
+						   > "Edit.java"	//수정 폼
+						   > "EditOk.java"	//수정 처리
+						   > "Del.java"		//삭제 폼
+						   > "DelOk.java"	//삭제 처리
+	- views > "memo" > "list.jsp"
+	                 > "view.jsp"
+	                 > "add.jsp"
+	                 > "edit.jsp"
+	                 > "del.jsp"
+
+	- 공통 자원
+	- views > "inc" > "header.jsp"
+				  	> "asset.jsp"
+	- webapp > "asset" > "css" > "main.css"
+	                   > "js" > "main.js"
+
+	- DB 계층
+	- "com.test.java.user.model" > "UserDAO.java"
+	                             > "UserDTO.java"
+	- "com.test.java.memo.model" > "MemoDAO.java"
+	                             > "MemoDTO.java"
+	                             
+	- 시작 페이지(+템플릿)
+	- com.test.java > "Index.java"
+	- views > "index.jsp"
+	- webapp > asset > favicon.ico
+	
+	- 파일 업로드(프로필 사진)
+	- webapp > asset > "pic"
+					 > pic > "pic.png"
+
+	- 이메일 전송
+	- 라이브러리 > javax.mail, javax.activation
+	- com.test.java.test > "Email.java"
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
