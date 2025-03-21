@@ -11,11 +11,12 @@
 	</style>
 </head>
 <body>
-	<!-- register.jsp -->
+	<!-- index.jsp -->
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 	
 	<main>
 		<h2>콘텐츠</h2>
+		<div>${auth}:${name}</div>
 		
 	</main>	
 	

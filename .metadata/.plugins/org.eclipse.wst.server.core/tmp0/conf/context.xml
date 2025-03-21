@@ -31,7 +31,7 @@
         name="jdbc/pool"
         auth="Container"
         type="javax.sql.DataSource"
-        maxWait="5000"
+        maxWaitMillis="5000"
         username="server"
         password="java1234"
         driverClassName="oracle.jdbc.driver.OracleDriver"
