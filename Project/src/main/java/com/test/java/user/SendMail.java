@@ -50,6 +50,7 @@ public class SendMail extends HttpServlet {
 		
 		//새로운 등록
 		dao.addEmail(map);
+		dao.close();
 		
 		
 		resp.setContentType("application/json");

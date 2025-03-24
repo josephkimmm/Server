@@ -13,15 +13,28 @@ import com.test.java.user.model.UserDTO;
 
 @WebServlet("/user/info.do")
 public class Info extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //Info.java
-        UserDAO dao = new UserDAO();//DB 다녀오기
-        
-        UserDTO dto = dao.getUser(req.getSession().getAttribute("auth").toString());
-        
-        req.setAttribute("dto", dto);
-        req.getRequestDispatcher("/WEB-INF/views/user/info.jsp").forward(req, resp);
-    }
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+		//Info.java
+		UserDAO dao = new UserDAO();
+		
+		UserDTO dto = dao.getUser(req.getSession().getAttribute("auth").toString());
+		dao.close();
+
+		req.setAttribute("dto", dto);
+		req.getRequestDispatcher("/WEB-INF/views/user/info.jsp").forward(req, resp);
+	}
+
 }
+
+
+
+
+
+
+
+
+
+

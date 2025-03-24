@@ -46,6 +46,11 @@ create table tblEmail (
 
 select * from tblEmail;
 
+delete from tblMemo where subject like '%자바%' or content like '%자바%'
+                        or subject like '%오라클%' or content like '%오라클%'
+                        or subject like '%버그%' or content like '%버그%';
+                        
+commit;
 
 
 

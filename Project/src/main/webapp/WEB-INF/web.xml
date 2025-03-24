@@ -1,46 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>Project</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
-  
-  <!-- 필터 등록 -->
-
-<!--   <filter>
-    <filter-name>test</filter-name>
-    <filter-class>com.test.java.filter.TestFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>test</filter-name>
-    <url-pattern>*.do</url-pattern>
-  </filter-mapping> -->
-
-<!--   <filter>
-    <filter-name>encoding</filter-name>
-    <filter-class>com.test.java.filter.EncodingFilter</filter-class>
-  </filter> -->
-<!--   <filter-mapping>
-    <filter-name>encoding</filter-name>
-    <url-pattern>registerok.do</url-pattern>
-  </filter-mapping>   -->
-<!--   <filter-mapping>
-    <filter-name>encoding</filter-name>
-    <url-pattern>addok.do</url-pattern>
-  </filter-mapping>   -->
-  
-    <!-- <filter>
-    <filter-name>auth</filter-name>
-    <filter-class>com.test.java.filter.AuthFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>auth</filter-name>
-    <url-pattern>/memo/add.do</url-pattern>
-  </filter-mapping> -->
-  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>Project</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+	</welcome-file-list>
+	
+	<!-- 필터 등록 -->
+	<!-- 
+	<filter>
+		<filter-name>test2</filter-name>
+		<filter-class>com.test.java.filter.TestFilter2</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>test2</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping> 
+	-->
+	
+	<!-- 
+	<filter>
+		<filter-name>test</filter-name>
+		<filter-class>com.test.java.filter.TestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>test</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping> 
+	-->
+	
+	<!-- 
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>com.test.java.filter.EncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/user/registerok.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/memo/ddok.do</url-pattern>
+	</filter-mapping> 
+	-->
+	
+	
+	<!-- 
+	<filter>
+		<filter-name>auth</filter-name>
+		<filter-class>com.test.java.filter.AuthFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>auth</filter-name>
+		<url-pattern>/memo/add.do</url-pattern>
+	</filter-mapping> 
+	-->
+	
 </web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+

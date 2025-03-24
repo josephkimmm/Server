@@ -3,6 +3,7 @@ package com.test.java.user.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
@@ -33,6 +34,15 @@ public class UserDAO {
 		}
 		
 	}
+	
+	public void close() {
+		try {
+			this.conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	public void addEmail(HashMap<String, String> map) {
 		
@@ -94,89 +104,96 @@ public class UserDAO {
 		return 0;
 	}
 
-    public int addUser(UserDTO dto) {
-        
-        try {
-            String sql = "insert into tblUser (id, pw, name, email, pic, intro, regdate, ing) values (?, ?, ?, ?, ?, ?, default, default)";
-            
-            pstat = conn.prepareStatement(sql);
-            pstat.setString(1, dto.getId());
-            pstat.setString(2, dto.getPw());
-            pstat.setString(3, dto.getName());
-            pstat.setString(4, dto.getEmail());
-            pstat.setString(5, dto.getPic());
-            pstat.setString(6, dto.getIntro());
-            
-            return pstat.executeUpdate();
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        return 0;
-    }
+	public int addUser(UserDTO dto) {
+		
+		try {
+			
+			String sql = "insert into tblUser (id, pw, name, email, pic, intro, regdate, ing) values (?, ?, ?, ?, ?, ?, default, default)";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getId());
+			pstat.setString(2, dto.getPw());
+			pstat.setString(3, dto.getName());
+			pstat.setString(4, dto.getEmail());
+			pstat.setString(5, dto.getPic());
+			pstat.setString(6, dto.getIng());
+			
+			return pstat.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 
-    public UserDTO login(UserDTO dto) {
-        
-        try {
-            
-            String sql = "select * from tblUser where id = ? and pw = ?";
-            
-            pstat = conn.prepareStatement(sql);
-            pstat.setString(1, dto.getId());
-            pstat.setString(2, dto.getPw());
+	public UserDTO login(UserDTO dto) {
+		
+		try {
+			
+			String sql = "select * from tblUser where id = ? and pw = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, dto.getId());
+			pstat.setString(2, dto.getPw());
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+				//로그인 성공
+				UserDTO result = new UserDTO();
+				
+				result.setId(rs.getString("id"));
+				result.setName(rs.getString("name"));
+				result.setPic(rs.getString("pic"));
+				
+				return result;
+				
+			} else {
+				//로그인 실패
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
-            rs = pstat.executeQuery();
-            
-            if (rs.next()) {
-                //로그인 성공
-                UserDTO result = new UserDTO();
-                result.setId(rs.getString("id"));
-                result.setName(rs.getString("name"));
-                result.setPic(rs.getString("pic"));
-                
-                return result;
-                
-            } else {
-                //로그인 실패
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        return null;
-    }
-
-    public UserDTO getUser(String id) {
-try {
-            
-            String sql = "select * from tblUser where id = ?";
-            
-            pstat = conn.prepareStatement(sql);
-            pstat.setString(1, id);
-
-            rs = pstat.executeQuery();
-            
-            if (rs.next()) {
-                //개인정보 읽기
-                UserDTO result = new UserDTO();
-                result.setId(rs.getString("id"));
-                result.setName(rs.getString("name"));
-                result.setPic(rs.getString("pic"));
-                result.setEmail(rs.getString("email"));
-                result.setIntro(rs.getString("intro"));
-                result.setRegdate(rs.getString("regdate"));
-                
-                return result;
-                
-            } else {
-                //개인정보 없음
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+	public UserDTO getUser(String id) {
+		
+		try {
+			
+			String sql = "select * from tblUser where id = ?";
+			
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, id);
+			
+			rs = pstat.executeQuery();
+			
+			if (rs.next()) {
+			
+				UserDTO result = new UserDTO();
+				
+				result.setId(rs.getString("id"));
+				result.setName(rs.getString("name"));
+				result.setPic(rs.getString("pic"));
+				result.setEmail(rs.getString("email"));
+				result.setIntro(rs.getString("intro"));
+				result.setRegdate(rs.getString("regdate"));
+				
+				return result;
+				
+			} else {
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 }
 

@@ -32,6 +32,7 @@ public class ValidMail extends HttpServlet {
 		
 		UserDAO dao = new UserDAO();
 		int result = dao.validEmail(map);
+		dao.close();
 		
 		if (result == 1) {
 			dao.delEmail(email);//성공 > 삭제

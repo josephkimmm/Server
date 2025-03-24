@@ -158,6 +158,7 @@
 						$('#remain').text('인증이 완료되었습니다.');
 						
 						$('button[type=submit]').prop('disabled', false);
+						
 					} else {
 						alert('인증 번호가 틀립니다.');
 					}

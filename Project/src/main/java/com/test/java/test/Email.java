@@ -32,8 +32,8 @@ public class Email {
 	private static void m3() {
 		
 		//발신자의 메일 정보
-		String username = "bluemosk84@gmail.com";
-		String password = "epwz qtvh whvv kxlb";
+		String username = "pinn.public@gmail.com";
+		String password = "kxxq qxva qfiq ykwr";
 		
 		//메일 서버 설정
 		Properties props = new Properties();
@@ -62,15 +62,15 @@ public class Email {
 						
 			//3. 받는 사람(to)
 			message.setRecipients(Message.RecipientType.TO, 
-					InternetAddress.parse("bluemosk84@gmail.com"));
+					InternetAddress.parse("pinn.public@gmail.com"));
 			
 			//3. 참조(CC)
 			message.setRecipients(Message.RecipientType.CC, 
-					InternetAddress.parse("bluemosk84@gmail.com"));
+					InternetAddress.parse("pinn.public@gmail.com"));
 			
 			//3. 숨은참조(BCC)
 			message.setRecipients(Message.RecipientType.BCC, 
-					InternetAddress.parse("bluemosk84@gmail.com"));
+					InternetAddress.parse("pinn.public@gmail.com"));
 			
 			//4. 제목(subject)
 			message.setSubject("단체 이메일입니다.");
@@ -102,8 +102,8 @@ public class Email {
 	private static void m2() {
 		
 		//발신자의 메일 정보
-        String username = "bluemosk84@gmail.com";
-        String password = "epwz qtvh whvv kxlb";
+		String username = "pinn.public@gmail.com";
+		String password = "kxxq qxva qfiq ykwr";
 		
 		//메일 서버 설정
 		Properties props = new Properties();
@@ -132,7 +132,7 @@ public class Email {
 			
 			//3. 받는 사람(to)
 			message.setRecipients(Message.RecipientType.TO, 
-					InternetAddress.parse("bluemosk84@gmail.com"));
+					InternetAddress.parse("pinn.public@gmail.com"));
 			
 			//4. 제목(subject)
 			message.setSubject("자바에서 보낸 HTML 형식의 이메일입니다.");
@@ -163,8 +163,8 @@ public class Email {
 	private static void m1() {
 		
 		//발신자의 메일 정보
-        String username = "bluemosk84@gmail.com";
-        String password = "epwz qtvh whvv kxlb";
+		String username = "pinn.public@gmail.com";
+		String password = "kxxq qxva qfiq ykwr";
 		
 		//메일 서버 설정
 		Properties props = new Properties();
@@ -193,7 +193,7 @@ public class Email {
 			
 			//3. 받는 사람(to)
 			message.setRecipients(Message.RecipientType.TO, 
-					InternetAddress.parse("bluemosk84@gmail.com"));
+					InternetAddress.parse("pinn.public@gmail.com"));
 			
 			//4. 제목(subject)
 			message.setSubject("자바에서 보낸 이메일입니다.");

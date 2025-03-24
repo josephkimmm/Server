@@ -3,6 +3,7 @@ package com.test.java.memo.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -33,6 +34,15 @@ public class MemoDAO {
 		}
 		
 	}
+	
+	public void close() {
+		try {
+			this.conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	public int add(MemoDTO dto) {
 		
@@ -86,37 +96,41 @@ public class MemoDAO {
 		return null;
 	}
 
-    public int check(String[] keyword) {
-        
-        try {
-            
-            //String sql = "select count(*) as cnt from tblMemo where subject like '%자바%' or content like '%자바%'";
-            //String sql = "select count(*) as cnt from tblMemo where subject like '%오라클%' or content like '%오라클%'";
-            //String sql = "select count(*) as cnt from tblMemo where subject like '%버그%' or content like '%버그%'";
-            
-            int cnt = 0;
-            
-            String sql = "select count(*) as cnt from tblMemo where subject like '%' || ? || '%' or content like '%' || ? || '%'";
-            
-            pstat = conn.prepareStatement(sql);
-            
-            for (String word : keyword) {
-                
-                pstat.setString(1, keyword[0]);
-                pstat.setString(2, keyword[0]);
-                
-                rs = pstat.executeQuery();
-                
-                
-                if (rs.next()) {
-                    cnt += rs.getInt("cnt");
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return 0;
-    }
+	public int check(String[] keyword) {
+		
+		try {
+			
+			//String sql = "select count(*) as cnt from tblMemo where subject like '%자바%' or content like '%자바%";
+			//String sql = "select count(*) as cnt from tblMemo where subject like '%오라클%' or content like '%오라클%";
+			//String sql = "select count(*) as cnt from tblMemo where subject like '%버그%' or content like '%버그%";
+			
+			int cnt = 0;
+			
+			String sql = "select count(*) as cnt from tblMemo where (subject like '%' || ? || '%' or content like '%' || ? || '%') and regdate > sysdate - 1 ";
+			
+			pstat = conn.prepareStatement(sql);
+			
+			for (String word : keyword) {
+				pstat.setString(1, word);
+				pstat.setString(2, word);
+				
+				rs = pstat.executeQuery();
+				
+				if (rs.next()) {
+					cnt += rs.getInt("cnt");
+				}
+				
+				rs.close();
+			}
+			
+			return cnt;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 
 }
 

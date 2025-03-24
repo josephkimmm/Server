@@ -11,20 +11,31 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/memo/add.do")
 public class Add extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //Add.java
-        
-        //인증 티켓이 없으면 접근 불가능(개구멍 막기)
-//        HttpSession session = req.getSession();
-//        
-//        if (session.getAttribute("auth") == null) {
-//            //응답이 이미 커밋된 후에는 forward 할 수 없습니다.
-//            resp.sendRedirect("/project/index.do");
-//            return;
-//        }
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getRequestDispatcher("/WEB-INF/views/memo/add.jsp").forward(req, resp);
-    }
+		//Add.java
+		
+		//인증 티켓이 없으면 접근 불가능
+//		HttpSession session = req.getSession();
+//		
+//		if (session.getAttribute("auth") == null) {
+//			//응답이 이미 커밋된 후에는 forward할 수 없습니다.
+//			resp.sendRedirect("/project/index.do");
+//			return;
+//		}
+
+		req.getRequestDispatcher("/WEB-INF/views/memo/add.jsp").forward(req, resp);
+	}
+
 }
+
+
+
+
+
+
+
+
+

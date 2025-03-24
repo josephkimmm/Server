@@ -4,25 +4,28 @@
 <html lang="ko">
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>Project</title>
 	<%@ include file="/WEB-INF/views/inc/asset.jsp" %>
 	<style>
-	    table {
-	        width: 400px !important;
-	    }
-		table tr:nth-child(1) td:nth-child(1){
-	        width: 170px;   
-	    }
-	    table tr:nth-child(1) td:nth-child(1) img {
-	        width: 150px;
-	        height: 150px;
-	        display: block;
-	        margin: 10px;   
-        }
-        
-        table tr:nth-child(4) {
-	        height: 100px;
-        }
+		table {
+			width: 400px !important; 
+		}
+	
+		table tr:nth-child(1) td:nth-child(1) {
+			width: 170px;
+		}
+		
+		table tr:nth-child(1) td:nth-child(1) img {
+			width: 150px;
+			height: 150px;
+			display: block;
+			margin: 10px;
+		}
+		
+		table tr:nth-child(4) {
+			height: 100px;
+		}
+		
 	</style>
 </head>
 <body>
@@ -30,26 +33,24 @@
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 	
 	<main>
-	   <h2>회원 <small>자기 정보</small></h2>
-	   <table class="vertical content">
-	       <tr>
-	           <td rowspan="3"><img src="/project/asset/pic/${dto.pic}"></td>
-	           <td>${dto.name}(${dto.id})</td>
-	       </tr>
-	       <tr>
-               <td>${dto.email}</td>
-           </tr>
-           <tr>
-               <td>${dto.regdate}</td>
-           </tr>
-           <tr>
-               <td colspan="2">${dto.intro}</td>
-           </tr>
-	   </table>
-	</main>
+		<h2>회원 <small>자기 정보</small></h2>
+		<table class="vertical content">
+			<tr>
+				<td rowspan="3"><img src="/project/asset/pic/${dto.pic}"></td>
+				<td>${dto.name}(${dto.id})</td>
+			</tr>
+			<tr>
+				<td>${dto.email}</td>
+			</tr>
+			<tr>
+				<td>${dto.regdate}</td>
+			</tr>
+			<tr>
+				<td colspan="2">${dto.intro}</td>
+			</tr>
+		</table>
+	</main>	
 	
-	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-	<script src="https://bit.ly/4cMuheh"></script>
 	<script>
 		
 	</script>

@@ -61,6 +61,8 @@
 	                       > "DelMail.java" 	//인증 메일 > 레코드 삭제
 	                       > "ValidMail.java"	//검증
 	                       
+	                       > "Notify.java"		//키워드 알림(ajax용)
+	                       
 	- views > "user" > "register.jsp"
 	                 > "login.jsp"
 	                 > "info.jsp"
@@ -105,16 +107,31 @@
 	- 라이브러리 > javax.mail, javax.activation
 	- com.test.java.test > "Email.java"
 	
+7.4 권한
+	- 회원 + 메모장
+	
+	- 목록 보기 > 모든 사람(인증O, 인증X)
+	- 쓰기 > 회원만(인증O)
+	
+	- 상세 보기 > 모든 사람(인증O, 인증X)
+	- 수정하기 > 회원만(인증O)
+	- 삭제하기 > 회원만(인증O)
 
 
+필터, Filter
+- "com.test.java.filter" > "TestFilter.java"
+                         > "TestFilter2.java"
+
+                         > "EncodingFilter.java"
+                         > "AuthFilter.java"
 
 
+다운로드 > Context.txt
+Servers > Tomcat v9.0 Server at localhost-config > context.xml
 
-
-
-
-
-
+com.test.java.test > "DBCPTest.java"
+                   > "DBCPDAO.java"
+views > "test" > "dbcptest.jsp"
 
 
 

@@ -8,12 +8,24 @@ import lombok.ToString;
 @Setter
 @ToString
 public class MemoDTO {
+	
+	private String seq;
+	private String id;
+	private String subject;
+	private String content;
+	private String regdate;
+	
+	private String name;
 
-    private String seq;
-    private String id;
-    private String subject;
-    private String content;
-    private String regdate;
-    
-    private String name;
 }
+
+
+
+
+
+
+
+
+
+
+

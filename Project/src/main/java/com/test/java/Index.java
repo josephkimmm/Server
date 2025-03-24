@@ -15,12 +15,20 @@ public class Index extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		//Index.java
-	    System.out.println("시작 페이지입니다.!");
+		System.out.println("시작 페이지입니다.");
 
 		req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
 	}
 
 }
+
+
+
+
+
+
+
+
 
 
 

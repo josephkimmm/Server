@@ -8,13 +8,23 @@ import lombok.ToString;
 @Setter
 @ToString
 public class UserDTO {
-
-    private String id;
-    private String pw;
-    private String name;
-    private String email;
-    private String pic;
-    private String intro;
-    private String regdate;
-    private String ing;
+	private String id;
+	private String pw;
+	private String name;
+	private String email;
+	private String pic;
+	private String intro;
+	private String regdate;
+	private String ing;
 }
+
+
+
+
+
+
+
+
+
+
+

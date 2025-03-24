@@ -15,29 +15,45 @@
 	<%@ include file="/WEB-INF/views/inc/header.jsp" %>
 	
 	<main>
-	   <h2> 회원 <small>로그인</small></h2>
-	   
-	   <form method="post" action="/project/user/loginok.do">
-	   <table class="content">
-	       <tr>
-	           <th>아이디</th>
-	           <td><input type="text" name="id" required class="short" autofocus></td>
-	       </tr>
-	       <tr>
-               <th>암호</th>
-               <td><input type="password" name="pw" required class="short"></td>
-           </tr>
-	   </table>
-	   <div>
-	       <button type="submit" class="in">로그인</button>
-	   </div>
-	   </form>
+		<h2>회원 <small>로그인</small></h2>
+		
+		<form method="POST" action="/project/user/loginok.do">
+		<table class="content">
+			<tr>
+				<th>아이디</th>
+				<td><input type="text" name="id" required class="short" autofocus></td>
+			</tr>
+			<tr>
+				<th>암호</th>
+				<td><input type="password" name="pw" required class="short"></td>
+			</tr>
+		</table>
+		<div>
+			<button type="submit" class="in">로그인</button>
+		</div>
+		</form>
+		
+		
+		<!-- 개발용 -->
+		<hr>
+		<div>
+			<form method="POST" action="/project/user/loginok.do">
+				<input type="hidden" name="id" value="hong">
+				<input type="hidden" name="pw" value="1111">
+				<button type="submit" class="in">로그인(홍길동)</button>
+			</form>
+		</div>
+		<div>
+			<form method="POST" action="/project/user/loginok.do">
+				<input type="hidden" name="id" value="test">
+				<input type="hidden" name="pw" value="1111">
+				<button type="submit" class="in">로그인(테스트)</button>
+			</form>
+		</div>
+		
+		
+	</main>	
 	
-	</main>
-	
-	
-	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-	<script src="https://bit.ly/4cMuheh"></script>
 	<script>
 		
 	</script>

@@ -9,15 +9,27 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-//@WebFilter(urlPatterns = { "/memo/add.do", "/memo/addok.do"})
-public class EncodingFilter implements Filter{
+@WebFilter(urlPatterns = { "/memo/addok.do", "/user/registerok.do" })
+public class EncodingFilter implements Filter {
 
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-            throws IOException, ServletException {
-        
-        request.setCharacterEncoding("UTF-8");
-        
-        chain.doFilter(request, response);
-    }   
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		chain.doFilter(request, response);
+		
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
